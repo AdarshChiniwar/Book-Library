@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.StoreAdminPage">
+
+    <ScrollView>
+        <StackLayout Padding="30">
+            <Label Text="Book Management" 
+                   FontSize="36" 
+                   TextColor="Blue" 
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="StartAndExpand"/>
+
+            <Label Text="Enter Book Details:" 
+                   FontSize="24" 
+                   TextColor="Blue" 
+                   Padding="0,10,0,10"/>
+
+            <Label Text="ID:" FontSize="Large" Padding="0,10,0,0"/>
+            <Entry x:Name="Idtext" Placeholder="Enter Id"/>
+
+            <Label Text="Title:" FontSize="Large" Padding="0,10,0,0"/>
+            <Entry x:Name="TitleText" Placeholder="Enter Title"/>
+
+            <Label Text="Author:" FontSize="Large" Padding="0,10,0,0"/>
+            <Entry x:Name="AuthorText" Placeholder="Enter Author Name"/>
+
+            <Label Text="Price:" FontSize="Large" Padding="0,10,0,0"/>
+            <Entry x:Name="PriceText" Placeholder="Enter Price"/>
+
+          
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,*">
+        
+
+        
+                <Button Grid.Row="1" Grid.Column="0" 
+                        Text="DELETE" 
+                        BackgroundColor="Gray" 
+                        TextColor="Black" 
+                        Clicked="DeleteButton_Clicked"/>
+
+                <Button Grid.Row="1" Grid.Column="1" 
+                        Text="UPDATE" 
+                        BackgroundColor="Gray" 
+                        TextColor="Black" 
+                        Clicked="UpdateButton_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

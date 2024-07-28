@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.BookListPage">
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Padding="5" HorizontalOptions="Start">
+            <Label Text="Book List" 
+               FontSize="36" 
+               TextColor="Black" 
+               HorizontalTextAlignment="Center"
+               VerticalOptions="StartAndExpand"/>
+            <BoxView BackgroundColor="LightGray" HeightRequest="2" VerticalOptions="Start"/>
+        </StackLayout>
+
+        <ListView Grid.Row="1" x:Name="BookListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="20" HasShadow="True">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            
+                        </Grid>
+                            
+                    </Frame>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

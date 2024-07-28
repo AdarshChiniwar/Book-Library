@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.HomePage" NavigationPage.HasNavigationBar="False">
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Padding="20">
+            <Label Text="Library" 
+                    FontSize="36" 
+                    TextColor="Black" FontAttributes="Bold" 
+                    HorizontalTextAlignment="Start"
+                    VerticalOptions="StartAndExpand"/>
+            <BoxView BackgroundColor="LightGray" HeightRequest="2" VerticalOptions="Start"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
+            <CarouselView IsBounceEnabled="True" ItemsSource="{Binding ImageCollection}"
+                          IndicatorView="indicator">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" CornerRadius="10">
+                            <Image Source="{Binding CauroselImage}" />
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicator" SelectedIndicatorColor="Black" IndicatorColor="LightGray"/>
+        </StackLayout>
+       
+        <StackLayout VerticalOptions="End" Grid.Row="2" Padding="20" >
+            <Button Text="Enter Book Details" CornerRadius="20"
+            FontSize="14" HeightRequest="70"
+            BackgroundColor="Orange" 
+            TextColor="Black"  
+            Clicked="EnterBookDetails_Clicked"/>
+            <Button Text="Modify Details" 
+                    FontSize="14" HeightRequest="70"
+                    BackgroundColor="Orange" 
+                    TextColor="Black"  CornerRadius="20"
+                    Clicked="StoreAdminPage_Clicked"/>
+            <Button Text="View Book List" 
+                         FontSize="14" HeightRequest="70"
+                         BackgroundColor="Orange" 
+                        TextColor="Black"  CornerRadius="20" 
+                        Clicked="ViewBookList_Clicked"/>
+            <Button Text="Check Database Connection" 
+                    FontSize="14" HeightRequest="70"
+                    BackgroundColor="Orange" 
+                    TextColor="Black"  CornerRadius="20"
+                    Clicked="ConnectionCheck_Clicked"/>
+        </StackLayout>
+    </Grid>
+     
+</ContentPage>
