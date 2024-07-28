@@ -38,17 +38,17 @@
             BackgroundColor="Orange" 
             TextColor="Black"  
             Clicked="EnterBookDetails_Clicked"/>
-            <Button Text="Modify Details" 
+            <!--<Button Text="Modify Details" 
                     FontSize="14" HeightRequest="70"
                     BackgroundColor="Orange" 
                     TextColor="Black"  CornerRadius="20"
-                    Clicked="StoreAdminPage_Clicked"/>
+                    Clicked="StoreAdminPage_Clicked"/>-->
             <Button Text="View Book List" 
                          FontSize="14" HeightRequest="70"
                          BackgroundColor="Orange" 
                         TextColor="Black"  CornerRadius="20" 
                         Clicked="ViewBookList_Clicked"/>
-            <Button Text="Check Database Connection" 
+            <Button Text="Copy Db File" 
                     FontSize="14" HeightRequest="70"
                     BackgroundColor="Orange" 
                     TextColor="Black"  CornerRadius="20"

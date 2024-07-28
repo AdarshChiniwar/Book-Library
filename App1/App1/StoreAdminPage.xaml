@@ -3,47 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.StoreAdminPage">
 
-    <ScrollView>
-        <StackLayout Padding="30">
+    <ScrollView Background="white">
+        <StackLayout Padding="20">
             <Label Text="Book Management" 
-                   FontSize="36" 
-                   TextColor="Blue" 
-                   HorizontalTextAlignment="Center"
-                   VerticalOptions="StartAndExpand"/>
+                   FontSize="Large" 
+                   TextColor="Black" FontAttributes="Bold" 
+                   HorizontalTextAlignment="Start"
+                   VerticalOptions="Start"/>
+            <BoxView BackgroundColor="LightGray" HeightRequest="2" VerticalOptions="Start"/>
 
             <Label Text="Enter Book Details:" 
-                   FontSize="24" 
-                   TextColor="Blue" 
+                   FontSize="Small" 
+                   TextColor="Black" FontAttributes="Bold" 
                    Padding="0,10,0,10"/>
+            <!--<BoxView BackgroundColor="LightGray" HeightRequest="2" VerticalOptions="Start"/>-->
 
-            <Label Text="ID:" FontSize="Large" Padding="0,10,0,0"/>
-            <Entry x:Name="Idtext" Placeholder="Enter Id"/>
+            
+            <Frame Padding="0" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Gray"
+                   CornerRadius="20"
+                   BorderColor="Transparent"
+                   HeightRequest="45" WidthRequest="200">
+                <Entry x:Name="Idtext"  Text="{Binding Idtext}"
+                   IsEnabled="False"/>
+            </Frame>
 
-            <Label Text="Title:" FontSize="Large" Padding="0,10,0,0"/>
-            <Entry x:Name="TitleText" Placeholder="Enter Title"/>
+            <Frame Padding="0" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Orange"
+                   CornerRadius="20"
+                   BorderColor="Transparent"
+                   HeightRequest="45" WidthRequest="200">
+                <Entry x:Name="TitleText" Text="{Binding TitleText}"
+                   Placeholder="Enter Title"/>
+            </Frame>
 
-            <Label Text="Author:" FontSize="Large" Padding="0,10,0,0"/>
-            <Entry x:Name="AuthorText" Placeholder="Enter Author Name"/>
+            <Frame Padding="0" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Orange"
+                   CornerRadius="20"
+                   BorderColor="Transparent"
+                   HeightRequest="45" WidthRequest="200">
+                <Entry x:Name="AuthorText"  Text="{Binding AuthorText}"
+                   Placeholder="Enter Author Name"/>
+            </Frame>
 
-            <Label Text="Price:" FontSize="Large" Padding="0,10,0,0"/>
-            <Entry x:Name="PriceText" Placeholder="Enter Price"/>
+            <Frame Padding="0" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Orange"
+                   CornerRadius="20"
+                   BorderColor="Transparent"
+                   HeightRequest="45" WidthRequest="200">
+                <Entry x:Name="PriceText" Text="{Binding PriceText}"
+                   Placeholder="Enter Price"/>
+            </Frame>
 
-          
-            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,*">
-        
 
-        
-                <Button Grid.Row="1" Grid.Column="0" 
-                        Text="DELETE" 
-                        BackgroundColor="Gray" 
-                        TextColor="Black" 
-                        Clicked="DeleteButton_Clicked"/>
+            <Grid >
 
-                <Button Grid.Row="1" Grid.Column="1" 
-                        Text="UPDATE" 
-                        BackgroundColor="Gray" 
-                        TextColor="Black" 
-                        Clicked="UpdateButton_Clicked"/>
+                <Button WidthRequest="200" Margin="20"
+                        Text="UPDATE"  HorizontalOptions="Center"
+                        BackgroundColor="Orange" CornerRadius="20" 
+                        TextColor="Black" Command="{Binding UpdateCmd}"
+                      />
             </Grid>
         </StackLayout>
     </ScrollView>

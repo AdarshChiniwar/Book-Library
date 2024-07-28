@@ -12,9 +12,7 @@ namespace App1
 {
     public partial class HomePage : ContentPage
     {
-        SqlConnection sqlConnection;
         private ObservableCollection<ImageModel> imageCollection;
-
         public ObservableCollection<ImageModel> ImageCollection 
         {
             get { return imageCollection; }
@@ -25,7 +23,6 @@ namespace App1
         public HomePage()
         {
             InitializeComponent();
-            sqlConnection = new SqlConnection("Data Source=192.168.37.239;Initial Catalog=mydb;User ID=Deepti;Password=Deepti;Encrypt=False");
             BindingContext = this;
             ImageCollection = new ObservableCollection<ImageModel>();
             ImageCollection.Add(new ImageModel { CauroselImage = "https://images.ctfassets.net/qpn1gztbusu2/7bsPTtX0rMiz3Z4T7E4syT/d8f870a5f088ba968cfed13f3cc7132d/quote-1-2.png" });
@@ -53,33 +50,12 @@ namespace App1
         {
             await Navigation.PushAsync(new BookListPage());
         }
-
-        private async void StoreAdminPage_Clicked(object sender, EventArgs e)
+        private void ConnectionCheck_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new StoreAdminPage());
-        }
-        private async void ConnectionCheck_Clicked(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    sqlConnection.Open();
-            //    await DisplayAlert("Congratulations ", "Connected with SQL database !!", "OK");
-            //    sqlConnection.Close();
-            //}
-            //catch (SqlException sqlEx)
-            //{
-            //    await DisplayAlert("Error", sqlEx.Message, "OK");
-            //}
-            //catch (Exception ex)
-            //{
-            //    await DisplayAlert("Error", ex.Message, "OK");
-            //    throw;
-            //}
             GetDBFile();
-            //CopySqliteFile();
         }
 
-        private void GetDBFile()
+        private async void GetDBFile()
         {
             IFileService fileService = DependencyService.Get<IFileService>();
             string path = Isqlite.GetDirectoryPath();
@@ -87,6 +63,7 @@ namespace App1
             fileService.CreateDBDirectory();
             fileService.CreateDBFile();
             fileService.CopyDatabase(path);
+
         }
     }
 }

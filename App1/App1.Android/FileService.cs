@@ -13,6 +13,10 @@ using Java.IO;
 using Xamarin.Forms;
 using System.IO;
 using App1.Droid;
+using AndroidX.Core.App;
+using AndroidX.Core.Content;
+using Android;
+using Android.Content.PM;
 
 [assembly: Dependency(typeof(FileService))]
 namespace App1.Droid
@@ -52,20 +56,31 @@ namespace App1.Droid
 
         public void CreateDBDirectory()
         {
+            // Ensure proper permissions
+            //if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            //{
+            //    if (ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+            //    {
+            //        ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new string[] { Manifest.Permission.WriteExternalStorage }, 1);
+            //    }
+            //}
             rootPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, Android.OS.Environment.DirectoryDownloads);
             dbCopyFilePath = Path.Combine(rootPath, "BookLibrary");
-            if(Directory.Exists(dbCopyFilePath))
+            if (Directory.Exists(dbCopyFilePath))
             {
-                foreach (var item in Directory.GetFiles(dbCopyFilePath,"*.*"))
+                //Directory.Delete(dbCopyFilePath);
+                string[] strings = Directory.GetFiles(dbCopyFilePath, "*.*");
+                foreach (var item in strings)
                 {
                     System.IO.File.Delete(item);
                 }
-                foreach (var file in Directory.GetDirectories(rootPath))
-                {
-                    Directory.Delete(file);
-                }
+                Directory.Delete(dbCopyFilePath);
+                //foreach (var file in Directory.GetDirectories(rootPath))
+                //{
+                //    Directory.Delete(dbCopyFilePath);
+                //}
             }
-            if(!Directory.Exists(dbCopyFilePath))
+            if (!Directory.Exists(dbCopyFilePath))
             {
                 Directory.CreateDirectory(dbCopyFilePath);
             }
@@ -73,29 +88,40 @@ namespace App1.Droid
 
         public void CreateDBFile()
         {
-            if(!System.IO.File.Exists(dbCopyFilePath))
+            if (!System.IO.File.Exists(dbCopyFilePath))
             {
                 Directory.CreateDirectory(dbCopyFilePath);
                 dbFile = Path.Combine(dbCopyFilePath, "");
             }
+            //string p = Path.Combine(dbCopyFilePath, "library.db");
+            //if(System.IO.File.Exists(p))
+            //{
+            //    System.IO.File.Delete(p);
+            //}
+
         }
         public void CopyDatabase(string dbPath)
         {
-            foreach (var newPath in Directory.GetFiles(dbPath,"*.*"))
+            foreach (var newPath in Directory.GetFiles(dbPath, "*.*"))
             {
                 var copyFile = newPath.Replace(dbPath, dbFile);
-                if(System.IO.File.Exists(copyFile))
+                if (System.IO.File.Exists(copyFile))
                 {
-                   System.IO.File.Copy(newPath,copyFile,true);
+                    System.IO.File.Copy(newPath, copyFile, true);
                 }
                 else
                 {
                     try
                     {
-                        System.IO.File.Copy (newPath,copyFile,true);
+                        if (System.IO.File.Exists(copyFile))
+                        {
+                            // Delete the existing file
+                            System.IO.File.Delete(copyFile);
+                        }
+                        System.IO.File.Copy(newPath, copyFile, true);
                     }
                     catch (Exception ex)
-                    { 
+                    {
                     }
                 }
             }

@@ -5,8 +5,8 @@
 
     <ScrollView Background="white
                 ">
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto">
-            <StackLayout Orientation="Vertical" Grid.Row="0" Padding="30">
+        <Grid RowDefinitions="Auto, *">
+            <StackLayout Orientation="Vertical" Grid.Row="0" Padding="10">
                 <Label Text="Book Details" HorizontalOptions="Start" 
                        FontSize="24" 
                        TextColor="Black" FontAttributes="Bold" 
@@ -28,7 +28,7 @@
                        CornerRadius="20"
                        BorderColor="Transparent"
                        HeightRequest="45" WidthRequest="200">
-                    <Entry x:Name="TitleText" Placeholder="Enter Title"/>
+                    <Entry x:Name="TitleText" Text="{Binding TitleText,Mode=TwoWay}" Placeholder="Enter Title"/>
                 </Frame>
                 <!--<Label Text="Author:" FontSize="Large" Padding="0,10,0,0"/>-->
                 <Frame Padding="0" HorizontalOptions="FillAndExpand" 
@@ -36,7 +36,7 @@
                        CornerRadius="20"
                        BorderColor="Transparent"
                        HeightRequest="45" WidthRequest="200">
-                    <Entry x:Name="AuthorText" Placeholder="Enter Author Name"/>
+                    <Entry x:Name="AuthorText" Text="{Binding AuthorText,Mode=TwoWay}" Placeholder="Enter Author Name"/>
                 </Frame>
                 <!--<Label Text="Price:" FontSize="Large" Padding="0,10,0,0"/>-->
                 <Frame Padding="0" HorizontalOptions="FillAndExpand" 
@@ -44,15 +44,16 @@
                        CornerRadius="20"
                        BorderColor="Transparent"
                        HeightRequest="45" WidthRequest="200">
-                    <Entry x:Name="PriceText" Placeholder="Enter Price"/>
+                    <Entry x:Name="PriceText" Text="{Binding PriceText,Mode=TwoWay}"  Placeholder="Enter Price"/>
                 </Frame>
             </StackLayout>
 
-            <Button Grid.Row="1" Text="Save Data"  FontSize="14" HeightRequest="70"
-                    BackgroundColor="Orange" 
-                    TextColor="Black"  CornerRadius="20"  Clicked="SaveButton_Clicked"/>
 
+            <Button Grid.Row="1"  Text="Save Data"  FontSize="14" HeightRequest="70" 
+             BackgroundColor="Orange" WidthRequest="50" VerticalOptions="End" Margin="20"
+             TextColor="Black"  CornerRadius="20"  Command="{Binding SaveCmd}"/>
 
         </Grid>
+
     </ScrollView>
 </ContentPage>

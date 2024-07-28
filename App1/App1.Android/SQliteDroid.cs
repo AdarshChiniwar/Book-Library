@@ -26,8 +26,8 @@ namespace App1.Droid
         public static string dbpath;
         public SQLiteConnection GetConnection()
         {
-            var dbase = "library.db";
-            dbpath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            var dbase = "library.sql";
+            dbpath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
             path = Path.Combine(dbpath, dbase);
             var connection = new SQLiteConnection(path);
             return connection;
