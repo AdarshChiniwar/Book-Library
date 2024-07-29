@@ -79,7 +79,7 @@ namespace MyBookLibrary.ViewModels
                     }
                     else
                     {
-                        await Application.Current.MainPage.DisplayAlert("Registration Failled!!!", "Please try again", "ERROR");
+                        await Application.Current.MainPage.DisplayAlert("Registration Failed!!!", "Please try again", "ERROR");
                     }
                 }
               
