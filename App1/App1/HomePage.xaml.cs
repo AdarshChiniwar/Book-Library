@@ -25,11 +25,11 @@ namespace App1
             InitializeComponent();
             BindingContext = this;
             ImageCollection = new ObservableCollection<ImageModel>();
-            ImageCollection.Add(new ImageModel { CauroselImage = "https://images.ctfassets.net/qpn1gztbusu2/7bsPTtX0rMiz3Z4T7E4syT/d8f870a5f088ba968cfed13f3cc7132d/quote-1-2.png" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "https://basmo.app/wp-content/uploads/2021/12/quotes-about-reading-books-1024x690.webp" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/83cd724a-3059-4895-b7b4-657ebc631533/quotes-about-children3.png" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "https://i0.wp.com/malissagreenwood.com/wp-content/uploads/2022/01/You-Are-a-Badass-Review-best-quotes-quotationremarks.png?resize=1080%2C400&ssl=1" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "https://st3.depositphotos.com/8865038/37657/i/450/depositphotos_376572560-stock-photo-yellow-sticky-note-on-wooden.jpg" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "1.png" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "2.webp" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "3.png" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "4.webp" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "5.jpg" });
 
             sqliteConnection = DependencyService.Get<Isqlite>().GetConnection();
             CreateTables();

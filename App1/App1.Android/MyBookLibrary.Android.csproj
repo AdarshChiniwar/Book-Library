@@ -80,6 +80,8 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Resources\drawable\2.webp" />
+    <None Include="Resources\drawable\4.webp" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -105,6 +107,11 @@
       <Project>{B20ABB96-F49C-4032-928C-4637EDDEFC2B}</Project>
       <Name>MyBookLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\drawable\1.png" />
+    <Content Include="Resources\drawable\3.png" />
+    <Content Include="Resources\drawable\5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
