@@ -25,11 +25,11 @@ namespace App1
             InitializeComponent();
             BindingContext = this;
             ImageCollection = new ObservableCollection<ImageModel>();
-            ImageCollection.Add(new ImageModel { CauroselImage = "1.png" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "2.webp" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "3.png" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "4.webp" });
-            ImageCollection.Add(new ImageModel { CauroselImage = "5.jpg" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "a.png" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "b.webp" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "c.png" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "d.webp" });
+            ImageCollection.Add(new ImageModel { CauroselImage = "e.jpg" });
 
             sqliteConnection = DependencyService.Get<Isqlite>().GetConnection();
             CreateTables();
